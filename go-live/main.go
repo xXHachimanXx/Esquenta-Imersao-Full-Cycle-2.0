@@ -1,19 +1,29 @@
 package main
 
 import (
+	uuid "github.com/satori/go.uuid"
+	"github.com/xXHachimanXx/Esquenta-Imersao-Full-Cycle-2.0/http"
 	"github.com/xXHachimanXx/Esquenta-Imersao-Full-Cycle-2.0/model"
 )
 
 func main() {
-	p1 := model.NewProduct()
-	p1.Name = "Carrinho"
+	p1 := model.Product{
+		ID:   uuid.NewV4().String(),
+		Name: "Carrinho",
+	}
 
-	p2 := model.NewProduct()
-	p2.Name = "Boneca"
+	p2 := model.Product{
+		ID:   uuid.NewV4().String(),
+		Name: "Boneca",
+	}
 
 	products := model.Products{}
-	products.Add(p1)
-	products.Add(p2)
+	products.Add(&p1)
+	products.Add(&p2)
+
+	server := http.NewWebServer()
+	server.Products = &products
+	server.Serve()
 }
 
 // type Pessoa struct {
