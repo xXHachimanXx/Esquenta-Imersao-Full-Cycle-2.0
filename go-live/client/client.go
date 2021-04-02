@@ -16,7 +16,7 @@ func main() {
 	}
 
 	for x := 0; x < 10; x++ {
-		requestId <- i
+		requestId <- x
 	}
 }
 
@@ -31,7 +31,7 @@ func worker(requestId chan int, worker int) {
 		defer res.Body.Close()
 
 		content, _ := ioutil.ReadAll(res.Body)
-		fmt.Printf("Worker %d, RequestId: %d, Content: %s", worker, requestId, string(content))
+		fmt.Printf("Worker %d, RequestId: %d, Content: %s", worker, r, string(content))
 		time.Sleep(time.Second * 2)
 	}
 }
