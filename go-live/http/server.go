@@ -4,7 +4,6 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo/v4"
-	uuid "github.com/satori/go.uuid"
 	"github.com/xXHachimanXx/Esquenta-Imersao-Full-Cycle-2.0/model"
 )
 
@@ -28,14 +27,12 @@ func (w WebServer) getAll(c echo.Context) error {
 }
 
 func (w WebServer) createProduct(c echo.Context) error {
-	product := model.Product{
-		ID: uuid.NewV4().String(),
-	}
+	product := model.NewProduct()
 
 	if err := c.Bind(product); err != nil {
 		return err
 	}
-	w.Products.Add(&product)
+	w.Products.Add(*product)
 
 	return c.JSON(http.StatusCreated, product)
 }

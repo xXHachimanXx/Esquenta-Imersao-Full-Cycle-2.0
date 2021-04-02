@@ -3,15 +3,15 @@ package model
 import uuid "github.com/satori/go.uuid"
 
 type Product struct {
-	ID   string `json:id`
-	Name string `json:name`
+	ID   string `json:"id"`
+	Name string `json:"name"`
 }
 
 type Products struct {
-	Products []*Product
+	Products []Product
 }
 
-func (products *Products) Add(product *Product) {
+func (products *Products) Add(product Product) {
 	products.Products = append(products.Products, product)
 }
 

@@ -18,8 +18,8 @@ func main() {
 	}
 
 	products := model.Products{}
-	products.Add(&p1)
-	products.Add(&p2)
+	products.Add(p1)
+	products.Add(p2)
 
 	server := http.NewWebServer()
 	server.Products = &products
