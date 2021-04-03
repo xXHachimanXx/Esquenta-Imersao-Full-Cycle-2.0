@@ -2,12 +2,10 @@ FROM node:14.15.4-alpine3.12
 
 USER node
 
-RUN mkdir -p /home/node/app && chown -R node:node /home/node/app
+#RUN mkdir -p /home/node/app && chown -R node:node /home/node/app
 WORKDIR /home/node/app/
 
 # Copiar tudo DESTE DIRETORIO para a IMAGEM
 COPY . .
 
-RUN npm install
-
-ENTRYPOINT [ "npm", "start" ]
+ENTRYPOINT [ ".docker/entrypoint.sh" ]
