@@ -8,6 +8,4 @@ WORKDIR /home/node/app/
 # Copiar tudo DESTE DIRETORIO para a IMAGEM
 COPY . .
 
-RUN npm install
-
-ENTRYPOINT [ "npm", "start" ]
+ENTRYPOINT [ "sh", ".docker/entrypoint.sh" ]
