@@ -1,23 +1,3 @@
-<<<<<<< HEAD
-import React, { FormEvent, useRef } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import { Form } from "./components/Form";
-import { Title } from "./components/Title";
-
-
-function App() {
-  return (
-    <div>
-      <Title onClick={() => alert('Primeiro')}>Iniciando com React</Title>
-      <Title onClick={() => alert('Segundo')} color="green">Iniciando com React</Title>
-      <Form />
-    </div>
-  );
-}
-
-export default App;
-=======
 import React, { FormEvent, useRef } from "react";
 import logo from "./logo.svg";
 import "./App.css";
@@ -46,4 +26,3 @@ export default App;
 
 //Angular - Framework, arquitetura de modules, injecao de dependencia, formularios, camada http
 //React - Biblioteca
->>>>>>> 9730c3e8e238fcf70168252ad0cf984e24521105
