@@ -1,8 +1,10 @@
 FROM node:14.15.4-alpine3.12
 
+RUN apk add bash
+
 USER node
 
-RUN mkdir -p /home/node/app && chown -R node:node /home/node/app
+#RUN mkdir -p /home/node/app && chown -R node:node /home/node/app
 #RUN chmod -R /home/node/app
 WORKDIR /home/node/app/
 
